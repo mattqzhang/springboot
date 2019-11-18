@@ -14,4 +14,10 @@ public class MessageJsonMeta {
 
         @JsonProperty("message")
         private String message;
+
+        /*
+        public MessageJsonMeta(){
+            int id = 0;
+            String message = "init";
+        }*/
 }

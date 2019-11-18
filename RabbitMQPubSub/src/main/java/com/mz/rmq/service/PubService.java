@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MessageService {
+public class PubService {
 
     @Autowired
     MessagePublisher publisher;
@@ -19,7 +19,7 @@ public class MessageService {
         return messageModel;
     }
 
-    public void ProcessMessage(MessageJsonMeta receivedMessage) {
+    public void PublishMessage(MessageJsonMeta receivedMessage) {
         MessageModel messageModel = buildMessage(receivedMessage);
         System.out.println("message is: " + messageModel.getMessage());
         // publish to RMQ

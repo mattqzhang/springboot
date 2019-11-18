@@ -20,15 +20,16 @@ public class MessagePublisher {
     RabbitTemplate rabbitTemplate;
 
     public void publishToNotification(MessageModel message) {
-        String jsonMsg = toJson(message);
+        //String jsonMsg = toJson(message);
         try {
-            rabbitTemplate.convertAndSend(userExchange, userKey, jsonMsg);
-            log.info("publishing info to rmq: " + jsonMsg);
+            rabbitTemplate.convertAndSend(userExchange, userKey, message);
+            log.info("publishing info to rmq: " + message);
         }catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    /*
     public String toJson(MessageModel message) {
 
         Gson gson = new Gson();
@@ -39,6 +40,7 @@ public class MessagePublisher {
 
         return jsonStr;
     }
+     */
 
 
 }
